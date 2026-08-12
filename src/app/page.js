@@ -1,13 +1,12 @@
+
+import Navbar from "./components/Navbar";
 export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="min-h-screen bg-[#0B0B0F] text-white">
 
-        {/* Brand */}
-        <p className="pt-10 text-center text-sm font-semibold uppercase tracking-widest text-violet-500">
-          AIReviewHub
-        </p>
+      <section className="min-h-screen bg-[#0B0B0F] text-white">
+        <Navbar />
 
         {/* Hero Content */}
         <div className="flex min-h-[80vh] flex-col items-center justify-center px-6 text-center">
