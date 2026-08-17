@@ -14,7 +14,10 @@ export default function Tools() {
 
                 <div>
 
-                    <input type="text" placeholder="Search for an AI tool">
+                    <input type="text" 
+                    
+                    placeholder="Search for an AI tool">
+
                     </input>
                     <button>Search</button>
                 </div>
@@ -34,9 +37,14 @@ export default function Tools() {
                     <h2>
                         Featured AI Tools
                     </h2>
-                    {tools.map((tool)=>(
+                    <div className=" mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+                        {tools.map((tool)=>(
                         <ToolCard key={tool.name} tool={tool}/>
                        )) }
+
+                    </div>
+                    
 
                 </section>
 
