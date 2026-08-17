@@ -9,6 +9,9 @@ export default function ToolCard({ tool }) {
           <p>Rating: {tool.rating}/5</p>
           <p>Best For: {tool.bestFor}</p>
         </div>
+        <button className="mt-6 w-full rounded-xl bg-violet-600 px-4 py-3 font-semibold text-white transition hover:bg-violet-500">
+          View Details
+        </button>
         
       
     </article>

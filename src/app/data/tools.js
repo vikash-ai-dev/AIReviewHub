@@ -7,6 +7,7 @@ const tools = [
     pricing: "Free + Paid",
     rating: 4.8,
     bestFor: "General AI assistance",
+    slug:"chatgpt",
   },
   {
     name:"Claude",
@@ -15,6 +16,7 @@ const tools = [
     pricing:"Free + Paid",
     rating:4.7,
     bestFor:"writing and analysis",
+    slug:"claude",
   },
   {
   name: "Gemini",
@@ -24,6 +26,7 @@ const tools = [
   pricing: "Free + Paid",
   rating: 4.7,
   bestFor: "Research and everyday AI tasks",
+  slug:"gemini",
 },
 ];
 
