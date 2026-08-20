@@ -1,5 +1,4 @@
 import tools from "../../data/tools";
-
 export default async function ToolDetails({ params }) {
   const { slug } = await params;
 

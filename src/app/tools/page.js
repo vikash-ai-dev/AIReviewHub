@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import tools from "../data/tools";
 import ToolCard from "../components/ToolCard";
 export default function Tools() {
+    const [search, setSearch] = useState("");
+
     return (
         <main className="min-h-screen bg-[#0B0B0F] px-6 py-12 text-white">
             <section className="mx-auto max-w-6xl">
@@ -18,10 +23,14 @@ export default function Tools() {
 
                         type="text"
 
-                        placeholder="Search for an AI tool">
-
+                        placeholder="Search for an AI tool"
+                        value={search}
+                        
+                        onChange={(e)=> setSearch(e.target.value)}>
 
                     </input>
+
+                    
                     <button className="rounded-xl bg-violet-600 px-7 py-4 font-semibold transition hover:bg-violet-500">Search</button>
                 </div>
                 <section className="mt-16">
