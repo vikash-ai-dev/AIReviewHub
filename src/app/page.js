@@ -1,6 +1,20 @@
+"use client";
 
+import { useState } from "react";
 import Navbar from "./components/Navbar";
+import tools from "./data/tools";
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState("");
+  
+  const [filteredTools, setFilteredTools] = useState(tools);
+
+
+  const handleSearch = () => {
+    const results = tools.filter((tool) =>
+      tool.name.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
+    );
+    setFilteredTools(results);
+  };
   return (
     <main>
       {/* Hero */}
@@ -29,12 +43,48 @@ export default function Home() {
               type="text"
               placeholder="What AI tool are you looking for?"
               className="flex-1 rounded-xl border border-zinc-800 bg-zinc-900 px-5 py-4 text-white outline-none placeholder:text-zinc-500 focus:border-violet-500"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
 
-            <button className="rounded-xl bg-violet-600 px-7 py-4 font-semibold transition hover:bg-violet-500">
+            <button
+              onClick={handleSearch}
+              className="rounded-xl bg-violet-600 px-7 py-4 font-semibold transition hover:bg-violet-500">
               Search
             </button>
 
+          </div>
+
+          <div className="mt-10 w-full max-w-2xl text-left">
+            {filteredTools.map((tool) => (
+              <div key={tool.slug} className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
+                <h2 className="text-2xl font-bold">{tool.name}</h2>
+
+                <p className="mt-2 text-zinc-400">
+                  {tool.description}
+                </p>
+
+                <p className="mt-4 text-sm text-violet-400">
+                  {tool.category}
+                </p>
+                <p className="mt-2 text-sm text-zinc-400">
+                  Pricing: {tool.pricing}
+                </p>
+
+                <p className="mt-2 text-sm text-zinc-400">
+                  Rating: ⭐ {tool.rating}
+                </p>
+
+                <p className="mt-2 text-sm text-zinc-400">
+                  Best for: {tool.bestFor}
+                </p>
+              </div>
+            ))}
+            {filteredTools.length === 0 && (
+              <p className="text-center text-zinc-400">
+                No AI tools found. Try a different search.
+              </p>
+            )}
           </div>
 
         </div>
