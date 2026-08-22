@@ -2,16 +2,23 @@
 
 import { useState } from "react";
 import Navbar from "./components/Navbar";
+import ToolCard from "./components/ToolCard";
 import tools from "./data/tools";
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-  
   const [filteredTools, setFilteredTools] = useState(tools);
+  const [selectedCategory,setSelectedCategory] =
+  useState("");
 
 
   const handleSearch = () => {
+    if (searchQuery.trim()===""){
+      setFilteredTools(tools);
+      return;
+    }
+  
     const results = tools.filter((tool) =>
-      tool.name.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
+      tool.name.toLowerCase().includes(searchQuery.toLowerCase()) || tool.description.toLowerCase().includes(searchQuery.toLowerCase()) || tool.bestFor.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredTools(results);
   };
@@ -45,6 +52,11 @@ export default function Home() {
               className="flex-1 rounded-xl border border-zinc-800 bg-zinc-900 px-5 py-4 text-white outline-none placeholder:text-zinc-500 focus:border-violet-500"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e)=>{
+                if (e.key === "Enter"){
+                  handleSearch();
+                }
+              }}
             />
 
             <button
@@ -54,31 +66,13 @@ export default function Home() {
             </button>
 
           </div>
+          <h2 className="mb-6 mt-5 w-full max-w-6xl text-2xl font-bold">
+            Search Results
+          </h2>
 
-          <div className="mt-10 w-full max-w-2xl text-left">
-            {filteredTools.map((tool) => (
-              <div key={tool.slug} className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
-                <h2 className="text-2xl font-bold">{tool.name}</h2>
-
-                <p className="mt-2 text-zinc-400">
-                  {tool.description}
-                </p>
-
-                <p className="mt-4 text-sm text-violet-400">
-                  {tool.category}
-                </p>
-                <p className="mt-2 text-sm text-zinc-400">
-                  Pricing: {tool.pricing}
-                </p>
-
-                <p className="mt-2 text-sm text-zinc-400">
-                  Rating: ⭐ {tool.rating}
-                </p>
-
-                <p className="mt-2 text-sm text-zinc-400">
-                  Best for: {tool.bestFor}
-                </p>
-              </div>
+          <div className="mt-10 grid w-full max-w-2xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {filteredTools.map((tool) =>(
+              <ToolCard key={tool.slug} tool={tool}/>
             ))}
             {filteredTools.length === 0 && (
               <p className="text-center text-zinc-400">
