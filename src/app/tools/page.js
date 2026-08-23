@@ -4,7 +4,7 @@ import { useState } from "react";
 import tools from "../data/tools";
 import ToolCard from "../components/ToolCard";
 export default function Tools() {
-    
+
     const [search, setSearch] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const filteredTools = tools.filter((tool) => {
@@ -13,12 +13,21 @@ export default function Tools() {
 
         const matchesSearch =
             search.trim() === "" ||
-            tool.name.toLowerCase().includes(search.toLowerCase()) ||
-            tool.description.toLowerCase().includes(search.toLowerCase()) ||
-            tool.bestFor.toLowerCase().includes(search.toLowerCase());
+            tool.name.toLowerCase().includes(search.trim().toLowerCase()) ||
+            tool.description.toLowerCase().includes(search.trim().toLowerCase()) ||
+            tool.bestFor.toLowerCase().includes(search.trim().toLowerCase());
 
         return matchesCategory && matchesSearch;
     });
+    let emptyMessage = "No tools found.";
+
+    if (search.trim() !== "" && selectedCategory !== "") {
+        emptyMessage = `No results for "${search.trim()}" in ${selectedCategory}.`;
+    } else if (search.trim() !== "") {
+        emptyMessage = `No results for "${search.trim()}".`;
+    } else if (selectedCategory !== "") {
+        emptyMessage = `No tools found in ${selectedCategory}.`;
+    }
 
     return (
         <main className="min-h-screen bg-[#0B0B0F] px-6 py-12 text-white">
@@ -56,15 +65,28 @@ export default function Tools() {
                             className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white">
                             All
                         </button>
-                        <button className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white">Writing</button>
-                        <button className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white">Image Generation</button>
-                        <button className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white">Video</button>
-                        <button className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white">Coding</button>
-                        <button className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white">Audio</button>
+                        <button
+                            onClick={() => setSelectedCategory("Writing")}
+                            className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white"> Writing </button>
+                        <button
+                            onClick={() => setSelectedCategory("Image Generation")}
+                            className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white"> Image Generation </button>
+                        <button
+                            onClick={() => setSelectedCategory("Video")}
+                            className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white"> Video </button>
+                        <button
+                            onClick={() => setSelectedCategory("Coding")}
+                            className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white"> Coding</button>
+                        <button
+                            onClick={() => setSelectedCategory("Audio")}
+                            className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white"> Audio
+                        </button>
                         <button
                             onClick={() => setSelectedCategory("Productivity")}
 
-                            className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white">Productivity</button>
+                            className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-violet-500 hover:text-white"> Productivity
+
+                        </button>
                     </div>
                 </section>
                 <section className="mt-16">
@@ -73,9 +95,16 @@ export default function Tools() {
                     </h2>
                     <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
+
                         {filteredTools.map((tool) => (
                             <ToolCard key={tool.name} tool={tool} />
                         ))}
+                        {filteredTools.length === 0 && (
+                            <p className="text-zinc-400">
+                                {emptyMessage}
+                            </p>
+
+                        )}
 
                     </div>
 

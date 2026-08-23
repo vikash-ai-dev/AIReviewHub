@@ -1,7 +1,7 @@
 import Link from "next/link";
 export default function ToolCard({ tool }) {
   return (
-    <article className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+    <article className="rounded-2xl border border-zinc-800 bg-[#15151C] p-6">
       <h2 className="text-2xl font-bold text-white">{tool.name}</h2>
       <p className="mt-3 text-zinc-400 leading-6">{tool.description}</p>
       <div className="mt-5 space-y-5 text-sm text-zinc-400">
