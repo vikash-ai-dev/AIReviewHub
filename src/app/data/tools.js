@@ -8,6 +8,7 @@ const tools = [
     rating: 4.8,
     bestFor: "General AI assistance",
     slug: "chatgpt",
+    website: "https://chat.openai.com",
   },
   {
     name: "Claude",
@@ -17,6 +18,7 @@ const tools = [
     rating: 4.7,
     bestFor: "writing and analysis",
     slug: "claude",
+    website: "https://claude.ai",
   },
   {
     name: "Gemini",
@@ -27,6 +29,7 @@ const tools = [
     rating: 4.7,
     bestFor: "Research and everyday AI tasks",
     slug: "gemini",
+    website: "https://gemini.google.com",
   },
   {
     name: "GitHub Copilot",
@@ -36,6 +39,7 @@ const tools = [
     rating: 4.6,
     bestFor: "Writing and completing code",
     slug: "github-copilot",
+    website: "https://github.com/features/copilot",
   },
 ];
 

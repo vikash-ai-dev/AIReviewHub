@@ -41,10 +41,18 @@ export default async function ToolDetails({ params }) {
             <p className="text-sm text-zinc-500">Best For</p>
             <p className="mt-2 font-semibold">{tool.bestFor}</p>
           </div>
-
+            
         </div>
 
+          <a href={tool.website}
+            target="_blank"
+            rel = "noopener noreferrer"
+            className="mt-10 inline-block rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500">
+              Visit Tool
+          </a>
       </div>
     </main>
   );
 }
+              
+
