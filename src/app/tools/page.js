@@ -1,5 +1,7 @@
 "use client";
 
+import Navbar from "../components/Navbar";
+import Link from "next/link";
 import { useState } from "react";
 import tools from "../data/tools";
 import ToolCard from "../components/ToolCard";
@@ -30,9 +32,12 @@ export default function Tools() {
     }
 
     return (
-        <main className="min-h-screen bg-[#0B0B0F] px-6 py-12 text-white">
+        <main className="min-h-screen bg-[#0B0B0F] px-6 pb-12 text-white">
+            <Navbar/>
             <section className="mx-auto max-w-6xl">
-                <p className="text-sm font-semibold uppercase tracking-widest text-violet-500">AIReviewHub</p>
+                <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500">
+                AIReviewHub
+                </Link>
 
                 <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl">AI Tools</h1>
 
@@ -53,9 +58,13 @@ export default function Tools() {
 
                     </input>
 
+                    {search.trim() !== "" && (
+                        <button onClick={() =>     setSearch("")}
+                            className="rounded-xl bg-violet-600 px-7 py-4 font-semibold transition hover:bg-violet-500">
+                            Clear
+                        </button>
+                    )}
 
-                    <button onClick={() => setSearch("")} 
-                    className="rounded-xl bg-violet-600 px-7 py-4 font-semibold transition hover:bg-violet-500">Clear</button>
                 </div>
                 <section className="mt-16">
                     <h2 className="text-2xl font-bold">Explore by Category</h2>
@@ -63,43 +72,37 @@ export default function Tools() {
                     <div className="mt-6 flex flex-wrap gap-3">
                         <button
                             onClick={() => setSelectedCategory("")}
-                            className={`rounded-full border  px-5 py-3 text-sm font-medium transition ${ selectedCategory === "" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900  text-zinc-300 hover:border-violet-500 hover:text-white"
-                            }`}>
+                            className={`rounded-full border  px-5 py-3 text-sm font-medium transition ${selectedCategory === "" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900  text-zinc-300 hover:border-violet-500 hover:text-white"
+                                }`}>
                             All
                         </button>
                         <button
                             onClick={() => setSelectedCategory("Writing")}
                             className={`rounded-full border px-5 py-3 text-sm font-medium
-                         transition ${
-                            selectedCategory === "Writing" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
-                         }`}> Writing </button>
+                         transition ${selectedCategory === "Writing" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Writing </button>
                         <button
                             onClick={() => setSelectedCategory("Image Generation")}
-                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${
-                                selectedCategory === "Image Generation" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
-                            }`}> Image Generation </button>
+                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${selectedCategory === "Image Generation" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Image Generation </button>
                         <button
                             onClick={() => setSelectedCategory("Video")}
-                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${
-                                selectedCategory === "Video" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
-                            }`}> Video </button>
+                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${selectedCategory === "Video" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Video </button>
                         <button
                             onClick={() => setSelectedCategory("Coding")}
-                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${
-                                selectedCategory === "Coding" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
-                            }`}> Coding</button>
+                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${selectedCategory === "Coding" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Coding</button>
                         <button
                             onClick={() => setSelectedCategory("Audio")}
-                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${
-                                selectedCategory === "Audio" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
-                            }`}> Audio
+                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${selectedCategory === "Audio" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Audio
                         </button>
                         <button
                             onClick={() => setSelectedCategory("Productivity")}
 
-                            className={`rounded-full border py-3 px-5 text-sm font-medium transition ${
-                                selectedCategory === "Productivity" ? "border-violet-500 bg-violet-600" : "border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-violet-500 hover:text-white"
-                            }`}> Productivity
+                            className={`rounded-full border py-3 px-5 text-sm font-medium transition ${selectedCategory === "Productivity" ? "border-violet-500 bg-violet-600" : "border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-violet-500 hover:text-white"
+                                }`}> Productivity
 
                         </button>
                     </div>
