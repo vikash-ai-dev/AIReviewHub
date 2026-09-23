@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import tools from "../data/tools";
 import ToolCard from "../components/ToolCard";
+
+
 export default function Tools() {
 
     const [search, setSearch] = useState("");
@@ -33,11 +35,11 @@ export default function Tools() {
 
     return (
         <main className="min-h-screen bg-[#0B0B0F] px-6 pb-12 text-white">
-            <Navbar/>
+            <Navbar />
             <section className="mx-auto max-w-6xl">
-                <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500">
-                AIReviewHub
-                </Link>
+                {/* <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500">
+                    AIReviewHub
+                </Link> */}
 
                 <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl">AI Tools</h1>
 
@@ -59,7 +61,7 @@ export default function Tools() {
                     </input>
 
                     {search.trim() !== "" && (
-                        <button onClick={() =>     setSearch("")}
+                        <button onClick={() => setSearch("")}
                             className="rounded-xl bg-violet-600 px-7 py-4 font-semibold transition hover:bg-violet-500">
                             Clear
                         </button>

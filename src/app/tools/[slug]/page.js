@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import tools from "../../data/tools";
+import Navbar from "../../components/Navbar";
+
+
 export default async function ToolDetails({ params }) {
   const { slug } = await params;
 
@@ -10,15 +13,17 @@ export default async function ToolDetails({ params }) {
   }
 
   return (
-    <main className="min-h-screen bg-[#0B0B0F] px-6 py-10 text-white">
-       <Link href="/tools" className="text-sm font-bold  inline-block mb-3 text-zinc-400 transition hover:text-violet-400">
-            ← Back to AI Tools
-        </Link>
+    <main className="min-h-screen bg-[#0B0B0F] px-6 pb-10 text-white">
+      <Navbar />
+
+      <Link href="/tools" className="text-sm font-bold  inline-block mb-3 text-zinc-400 transition hover:text-violet-400">
+        ← Back to AI Tools
+      </Link>
       <div className="mx-auto max-w-4xl ">
 
-        <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500 self-start">
+        {/* <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500 self-start">
           AIReviewHub
-        </Link>
+        </Link> */}
 
         <h1 className="mt-6 text-5xl font-bold tracking-tight">
           {tool.name}
@@ -49,7 +54,7 @@ export default async function ToolDetails({ params }) {
             <p className="text-sm text-zinc-500">Best For</p>
             <p className="mt-2 font-semibold">{tool.bestFor}</p>
           </div>
-            
+
         </div>
 
         {tool.features && (
@@ -70,7 +75,7 @@ export default async function ToolDetails({ params }) {
             <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
               <h3 className="font-semibold text-emerald-400">Pros</h3>
               <ul className="mt-3 space-y-2 text-zinc-400">
-                {tool.pros.map((pro)=>(
+                {tool.pros.map((pro) => (
                   <li key={pro} className="flex items-start gap-2">
                     <span className="text-emerald-400">+</span>
                     {pro}
@@ -100,15 +105,15 @@ export default async function ToolDetails({ params }) {
           </div>
         )}
 
-          <a href={tool.website}
-            target="_blank"
-            rel = "noopener noreferrer"
-            className="mt-10 inline-block rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500">
-              Visit Tool
-          </a>
+        <a href={tool.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 inline-block rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500">
+          Visit Tool
+        </a>
       </div>
     </main>
   );
 }
-              
+
 

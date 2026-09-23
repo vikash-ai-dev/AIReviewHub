@@ -36,15 +36,21 @@ export default function Navbar() {
         </li>
 
         <li>
-          <Link href="/categories" className="transition hover:text-violet-400">Categories</Link>
+          <Link href="/categories" className={`transition hover:text-violet-400 ${
+            pathname === "/categories" ? "text-violet-400 font-semibold" :""
+          }`}>Categories</Link>
         </li>
 
         <li>
-          <Link href="/guides" className="transition hover:text-violet-400">Guides</Link>
+          <Link href="/guides" className={` transition hover:text-violet-400 ${
+            pathname === "/guides" ? "text-violet-400 font-semibold" : ""
+          }`}>Guides</Link>
         </li>
 
         <li>
-          <Link href="/about" className="transition hover:text-violet-400">About</Link>
+          <Link href="/about" className={`transition hover:text-violet-400 ${
+            pathname === "/about" ? "text-violet-400 font-semibold" : ""
+          }`}>About</Link>
         </li>
       </ul>
     </nav>
