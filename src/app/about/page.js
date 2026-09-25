@@ -60,6 +60,26 @@ export default function About() {
                     </div>
                 </div>
             </section>
+            <section className="mx-10 mt-14 mb-16">
+                <h2 className="text-2xl font-bold">Who It's For</h2>
+                <div className="mt-5 flex gap-4">
+                    <span className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300">
+                        Students
+                    </span>
+                    <span className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300">
+                        Content Creators
+                    </span>
+                    <span className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300">
+                        Freelancers
+                    </span>
+                    <span className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300">
+                        Developers
+                    </span>
+                    <span className="rounded-full border border-zinc-800 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-300">
+                        Small Business Owners
+                    </span>
+                </div>           
+            </section>
         </main>
     );
 }
