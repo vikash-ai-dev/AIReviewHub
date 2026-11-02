@@ -1,0 +1,137 @@
+"use client";
+
+import Navbar from "../components/Navbar";
+import Link from "next/link";
+import { useState } from "react";
+import tools from "../data/tools";
+import ToolCard from "../components/ToolCard";
+
+
+export default function Tools() {
+
+    const [search, setSearch] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const filteredTools = tools.filter((tool) => {
+        const matchesCategory =
+            selectedCategory === "" || tool.category === selectedCategory;
+
+        const matchesSearch =
+            search.trim() === "" ||
+            tool.name.toLowerCase().includes(search.trim().toLowerCase()) ||
+            tool.description.toLowerCase().includes(search.trim().toLowerCase()) ||
+            tool.bestFor.toLowerCase().includes(search.trim().toLowerCase());
+
+        return matchesCategory && matchesSearch;
+    });
+    let emptyMessage = "No tools found.";
+
+    if (search.trim() !== "" && selectedCategory !== "") {
+        emptyMessage = `No results for "${search.trim()}" in ${selectedCategory}.`;
+    } else if (search.trim() !== "") {
+        emptyMessage = `No results for "${search.trim()}".`;
+    } else if (selectedCategory !== "") {
+        emptyMessage = `No tools found in ${selectedCategory}.`;
+    }
+
+    return (
+        <main className="min-h-screen bg-[#0B0B0F] px-6 pb-12 text-white">
+            <Navbar />
+            <section className="mx-auto max-w-6xl">
+                {/* <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500">
+                    AIReviewHub
+                </Link> */}
+
+                <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl">AI Tools</h1>
+
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
+                    Discover AI tools that can help you work, learn, create, and grow.
+                </p>
+
+                <div className="mt-8 flex w-full max-w-2xl gap-3 flex-col sm:flex-row">
+
+                    <input className="flex-1 rounded-xl border border-zinc-800 bg-zinc-900 px-5 py-4 text-white outline-none placeholder:text-zinc-500 focus:border-violet-500"
+
+                        type="text"
+
+                        placeholder="Search for an AI tool"
+                        value={search}
+
+                        onChange={(e) => setSearch(e.target.value)}>
+
+                    </input>
+
+                    {search.trim() !== "" && (
+                        <button onClick={() => setSearch("")}
+                            className="rounded-xl bg-violet-600 px-7 py-4 font-semibold transition hover:bg-violet-500">
+                            Clear
+                        </button>
+                    )}
+
+                </div>
+                <section className="mt-16">
+                    <h2 className="text-2xl font-bold">Explore by Category</h2>
+
+                    <div className="mt-6 flex flex-wrap gap-3">
+                        <button
+                            onClick={() => setSelectedCategory("")}
+                            className={`rounded-full border  px-5 py-3 text-sm font-medium transition ${selectedCategory === "" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900  text-zinc-300 hover:border-violet-500 hover:text-white"
+                                }`}>
+                            All
+                        </button>
+                        <button
+                            onClick={() => setSelectedCategory("Writing")}
+                            className={`rounded-full border px-5 py-3 text-sm font-medium
+                         transition ${selectedCategory === "Writing" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Writing </button>
+                        <button
+                            onClick={() => setSelectedCategory("Image Generation")}
+                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${selectedCategory === "Image Generation" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Image Generation </button>
+                        <button
+                            onClick={() => setSelectedCategory("Video")}
+                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${selectedCategory === "Video" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Video </button>
+                        <button
+                            onClick={() => setSelectedCategory("Coding")}
+                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${selectedCategory === "Coding" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Coding</button>
+                        <button
+                            onClick={() => setSelectedCategory("Audio")}
+                            className={`rounded-full border px-5 py-3 text-sm font-medium transition ${selectedCategory === "Audio" ? "border-violet-500 bg-violet-600 text-white" : "border-zinc-800 bg-zinc-900 hover:border-violet-500 hover:text-white"
+                                }`}> Audio
+                        </button>
+                        <button
+                            onClick={() => setSelectedCategory("Productivity")}
+
+                            className={`rounded-full border py-3 px-5 text-sm font-medium transition ${selectedCategory === "Productivity" ? "border-violet-500 bg-violet-600" : "border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-violet-500 hover:text-white"
+                                }`}> Productivity
+
+                        </button>
+                    </div>
+                </section>
+                <section className="mt-16">
+                    <h2 className="text-2xl font-bold">
+                        Featured AI Tools
+                    </h2>
+                    <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+
+                        {filteredTools.map((tool) => (
+                            <ToolCard key={tool.name} tool={tool} />
+                        ))}
+                        {filteredTools.length === 0 && (
+                            <p className="text-zinc-400">
+                                {emptyMessage}
+                            </p>
+
+                        )}
+
+                    </div>
+
+
+                </section>
+
+            </section>
+        </main>
+    );
+}
