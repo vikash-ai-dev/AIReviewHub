@@ -3,14 +3,21 @@
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import tools from "../data/tools";
 import ToolCard from "../components/ToolCard";
 
 
 export default function Tools() {
 
+    const searchParams = useSearchParams();
+    const categoryUrl = searchParams.get("category");
+    
     const [search, setSearch] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState(categoryUrl || ""); 
+
+    
+
     const filteredTools = tools.filter((tool) => {
         const matchesCategory =
             selectedCategory === "" || tool.category === selectedCategory;

@@ -6,7 +6,7 @@ export default function About() {
         <main className="min-h-screen bg-[#0B0B0F] text-white">
             <Navbar />
 
-            <section className="mx-auto max-w-6xl px-6 pt-16">
+            <section className="max-w-6xl">
                 <h1 className="mx-10 mt-10 text-5xl font-bold tracking-tight">
                     About AIReviewHub
                 </h1>
