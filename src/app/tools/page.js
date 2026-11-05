@@ -41,7 +41,7 @@ export default function Tools() {
     }
 
     return (
-        <main className="min-h-screen bg-[#0B0B0F] px-6 pb-12 text-white">
+        <main className="min-h-screen bg-[#0B0B0F] pb-12 text-white">
             <Navbar />
             <section className="mx-auto max-w-6xl">
                 {/* <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500">

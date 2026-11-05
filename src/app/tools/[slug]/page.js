@@ -13,10 +13,10 @@ export default async function ToolDetails({ params }) {
   }
 
   return (
-    <main className="min-h-screen bg-[#0B0B0F] px-6 pb-10 text-white">
+    <main className="min-h-screen bg-[#0B0B0F]  pb-10 text-white">
       <Navbar />
 
-      <Link href="/tools" className="text-sm font-bold  inline-block mb-3 text-zinc-400 transition hover:text-violet-400">
+      <Link href="/tools" className="text-sm font-bold  inline-block mb-3 text-zinc-400 transition hover:text-violet-400 px-4">
         ← Back to AI Tools
       </Link>
       <div className="mx-auto max-w-4xl ">
