@@ -8,6 +8,7 @@ import guides from "../data/guides";
 
 const Guide = () => {
 
+    const [search,setSearch] = useState("");
     const [selectedCategory,setSelectedCategory] = useState("All Guides")
     console.log(selectedCategory);
 
@@ -16,12 +17,28 @@ const Guide = () => {
     }
 
     const filteredGuides = guides.filter((item)=>{
-        if (selectedCategory === "All Guides"){
-            return true;
+        const matchesCategory = ()=>{
+            if(selectedCategory === "All Guides"){
+                return true;
+            }
+            else{
+                return item.category === selectedCategory;
+            }
         }
+        
+        const matchesSearch = 
+            search.trim() === "" ||
+            item.category.toLowerCase().includes(search.trim().toLowerCase()) ||
+            item.title.toLowerCase().includes(search.trim().toLowerCase()) ||
+            item.description.toLowerCase().includes(search.trim().toLowerCase()) 
 
-        return item.category === selectedCategory;
+
+        return matchesCategory() && matchesSearch;
+        
     })
+
+  
+    console.log(filteredGuides)
 
     return (
         <main className="min-h-screen bg-[#0B0B0F] pb-10 text-white">
@@ -47,6 +64,7 @@ const Guide = () => {
                         <Search className="absolute left-7 md:left-4 top-1/2 -translate-y-1/2 text-zinc-400" />
 
                         <input
+                            onChange={(e)=>setSearch(e.target.value)}
                             className="w-full border border-zinc-800 bg-zinc-900 rounded-xl px-5 pl-12 py-4 mx-5 md:mx-0 text-white outline-none placeholder:text-zinc-400 placeholder:text-sm focus:border-violet-500"
                             type="text"
                             placeholder="Search guides, tutorials, comparisons..."

@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 
 const GuideCard = ({guides}) => {
     const cards = guides.map((item) => {
@@ -25,9 +25,9 @@ const GuideCard = ({guides}) => {
                     <h4 className="text-xl font-semibold">{item.title}</h4>
                     <p className="text-base text-zinc-400">{item.description}</p>
 
-                    <span className="text-violet-400 mt-auto pt-2 cursor-pointer hover:text-violet-300 transition-colors">
+                    <Link href={`/guides/${item.slug}`} className="text-violet-400 mt-auto pt-2 cursor-pointer hover:text-violet-300 transition-colors">
                         Read Guide →
-                    </span>
+                    </Link>
                 </div>
             </div>
         );
