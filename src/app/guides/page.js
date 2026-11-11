@@ -10,14 +10,14 @@ const Guide = () => {
 
     const [search,setSearch] = useState("");
     const [selectedCategory,setSelectedCategory] = useState("All Guides")
-    console.log(selectedCategory);
+   
 
-    const handleButton = (category)=>{
+    const handleButton = (category)=> {
         setSelectedCategory(category)
     }
 
-    const filteredGuides = guides.filter((item)=>{
-        const matchesCategory = ()=>{
+    const filteredGuides = guides.filter((item)=> {
+        const matchesCategory = ()=> {
             if(selectedCategory === "All Guides"){
                 return true;
             }
@@ -38,7 +38,6 @@ const Guide = () => {
     })
 
   
-    console.log(filteredGuides)
 
     return (
         <main className="min-h-screen bg-[#0B0B0F] pb-10 text-white">

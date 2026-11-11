@@ -5,7 +5,59 @@ const guides = [
         category: "Tutorial",
         readingTime: "5 min read",
         image: "/image1.png",
-        slug: "how-to-use-chatgpt-effectively"
+        slug: "how-to-use-chatgpt-effectively",
+        content: [
+            {
+                heading: "Introduction",
+                id: "introduction",
+                paragraphs: [
+                    "ChatGPT is an AI assistant that can help you learn new concepts, generate ideas, write content, solve problems, and improve your productivity. However, getting useful results depends on how effectively you communicate with it."
+                ]
+            },
+            {
+                heading: "Understanding ChatGPT",
+                id: "understanding-chatgpt",
+                paragraphs: [
+                    "ChatGPT is developed by OpenAI. It understands natural language and generates responses based on the instructions and context you provide.",
+                    "You can use it for learning, brainstorming, writing, coding, research assistance, and many other everyday tasks."
+                ]
+            },
+            {
+                heading: "Writing Better Prompts",
+                id: "writing-better-prompts",
+                paragraphs: [
+                    "A prompt is the instruction or question you give to ChatGPT. Clear and specific prompts help it understand what you actually want.",
+                    "Instead of asking a general question, explain your goal, provide relevant context, and mention the format of the answer you expect.",
+                    "For example, instead of saying 'Explain JavaScript', try 'Explain JavaScript variables to a beginner with simple examples.'"
+                ]
+            },
+            {
+                heading: "Practical Examples",
+                id: "practical-examples",
+                paragraphs: [
+                    "Learning a New Concept: Ask ChatGPT to explain difficult topics in simple language, provide examples, and test your understanding.",
+                    "Writing and Improving Content: Use it to organize ideas, improve grammar, create outlines, and make your writing clearer.",
+                    "Coding and Debugging: Share your code and error messages to understand problems, explore possible solutions, and learn programming concepts."
+                ]
+            },
+            {
+                heading: "Tips and Best Practices",
+                id: "tips-and-best-practices",
+                paragraphs: [
+                    "Be Clear and Specific: Explain exactly what you want instead of using vague instructions.",
+                    "Provide Context: Share relevant details so ChatGPT can generate more useful responses.",
+                    "Break Complex Tasks into Smaller Steps: Handle complicated problems one step at a time.",
+                    "Review and Verify Responses: AI-generated information can sometimes be incorrect, so verify important facts using reliable sources."
+                ]
+            },
+            {
+                heading: "Conclusion",
+                id: "conclusion",
+                paragraphs: [
+                    "ChatGPT can become a useful learning and productivity assistant when you know how to communicate with it effectively. Start with clear instructions, provide context, and experiment with different prompts to improve your results."
+                ]
+            }
+        ]
     },
     {
         title: "Best AI Tools for Students",

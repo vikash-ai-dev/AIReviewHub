@@ -1,6 +1,7 @@
 
 import Navbar from "@/app/components/Navbar";
 import guides from "@/app/data/guides";
+import GuideCard from "@/app/components/GuideCard";
 
 const GuideDetails = async ({ params }) => {
     const { slug } = await params;
@@ -9,6 +10,9 @@ const GuideDetails = async ({ params }) => {
         return item.slug === slug;
     })
 
+    const relatedGuides = guides.filter((item) => {
+        return item.slug !== slug && item.category === guide.category;
+    })
 
     return (
         <main id="top" className="min-h-screen bg-[#0B0B0F] pb-10 text-white">
@@ -41,19 +45,22 @@ const GuideDetails = async ({ params }) => {
 
                         </section>
 
-                        <section className="flex flex-col gap-4 mt-10">
+                        {guide.content.map((section) => (
+                            <section key={section.id} className="flex flex-col gap-4 mt-10">
 
-                            <h2 id="introduction" className="text-2xl font-bold">Introduction</h2>
+                                <h2 id={section.id} className="text-2xl font-bold">
+                                    {section.heading}
+                                </h2>
 
-                            <p className="text-zinc-400 leading-relaxed max-w-2xl">
-                                ChatGPT is a powerful AI assistant that can help you
-                                with writing, coding, research, and much more.
-                                In this guide, we'll explore practical ways to get
-                                better results from ChatGPT.
-                            </p>
+                                {section.paragraphs.map((paragraph, index) => (
+                                    <p key={index} className="text-zinc-400 leading-relaxed max-w-2xl">
+                                        {paragraph}
+                                    </p>
+                                ))}
 
-                        </section>
-
+                            </section>
+                        ))}
+                        
                         <section className="flex flex-col gap-4 mt-10">
 
                             <h2 id="understanding-chatgpt" className="text-2xl font-bold">Understanding ChatGPT</h2>
@@ -234,6 +241,12 @@ const GuideDetails = async ({ params }) => {
                             </p>
 
                         </section>
+
+                        <div className="grid grid-cols-1 mt-4">
+
+                            <GuideCard guides={relatedGuides.slice(0, 2)} />
+
+                        </div>
 
                     </div>
 
