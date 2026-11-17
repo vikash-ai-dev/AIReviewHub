@@ -2,13 +2,19 @@
 import Navbar from "@/app/components/Navbar";
 import guides from "@/app/data/guides";
 import GuideCard from "@/app/components/GuideCard";
+import { notFound } from "next/navigation";
 
 const GuideDetails = async ({ params }) => {
     const { slug } = await params;
 
     const guide = guides.find((item) => {
         return item.slug === slug;
+
     })
+    if(!guide){
+        notFound()
+    }
+
 
     const relatedGuides = guides.filter((item) => {
         return item.slug !== slug && item.category === guide.category;
@@ -58,9 +64,10 @@ const GuideDetails = async ({ params }) => {
                                     </p>
                                 ))}
 
+                           
                             </section>
                         ))}
-                        
+
                         <section className="flex flex-col gap-4 mt-10">
 
                             <h2 id="understanding-chatgpt" className="text-2xl font-bold">Understanding ChatGPT</h2>
@@ -262,48 +269,21 @@ const GuideDetails = async ({ params }) => {
                             <h3 className="text-lg font-semibold mb-4">Table of Contents</h3>
 
                             <ul className="flex flex-col text-sm text-zinc-400 gap-3">
+                                {guide.content.map((section) => (
 
-                                <li>
-                                    <a href="#introduction" className="hover:text-violet-400 transition-colors">
-                                        Introduction
-                                    </a>
-                                </li>
+                                    <li key={section.id}>
+                                        <a href={`#${section.id}`} className="hover:text-violet-400 transition-colors">
+                                            {section.heading}
+                                        </a>
+                                    </li>
+                                ))}
 
-                                <li>
-                                    <a href="#understanding-chatgpt" className="hover:text-violet-400 transition-colors">
-                                        Understanding the Tool
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#writing-better-prompts" className="hover:text-violet-40 transition-colors">
-                                        Writing Better Prompts
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#practical-examples" className="hover:text-violet-400 transition-colors">
-                                        Practical Examples
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#tips-and-best-practices" className="hover:text-violet-400 transition-colors">
-                                        Tips and Best Practices
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#conclusion" className="hover:text-violet-400 transition-colors">
-                                        Conclusion
-                                    </a>
-                                </li>
                             </ul>
 
                         </div>
 
                     </aside>
-                    {/* =========The End of Right side ===========*/}
+                    {/* =========The End of Right side===========*/}
 
                 </div>
             </div>
