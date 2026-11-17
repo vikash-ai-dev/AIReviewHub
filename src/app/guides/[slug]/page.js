@@ -11,7 +11,7 @@ const GuideDetails = async ({ params }) => {
         return item.slug === slug;
 
     })
-    if(!guide){
+    if (!guide) {
         notFound()
     }
 
@@ -64,11 +64,28 @@ const GuideDetails = async ({ params }) => {
                                     </p>
                                 ))}
 
-                           
+                                {section.subsections?.map((subsection, index) => (
+                                    <div key={index} className="flex flex-col gap-3 mt-4">
+
+                                        <h3 className="text-xl font-semibold">
+                                            {subsection.heading}
+                                        </h3>
+
+                                        {subsection.paragraphs.map((paragraph, paragraphIndex) => (
+                                            <p key={paragraphIndex} className="text-zinc-400 leading-relaxed max-w-2xl">
+                                                {paragraph}
+                                            </p>
+                                        ))}
+
+                                    </div>
+                                ))}
+
                             </section>
+
+
                         ))}
 
-                        <section className="flex flex-col gap-4 mt-10">
+                        {/* <section className="flex flex-col gap-4 mt-10">
 
                             <h2 id="understanding-chatgpt" className="text-2xl font-bold">Understanding ChatGPT</h2>
 
@@ -81,6 +98,8 @@ const GuideDetails = async ({ params }) => {
                             </p>
 
                         </section>
+                        
+
 
                         <section className="flex flex-col gap-4 mt-10">
                             <h2 id="writing-better-prompts" className="text-2xl font-bold">
@@ -247,7 +266,7 @@ const GuideDetails = async ({ params }) => {
                                 learn about AI tools and improve your skills.
                             </p>
 
-                        </section>
+                        </section> */}
 
                         <div className="grid grid-cols-1 mt-4">
 

@@ -35,9 +35,27 @@ const guides = [
                 heading: "Practical Examples",
                 id: "practical-examples",
                 paragraphs: [
-                    "Learning a New Concept: Ask ChatGPT to explain difficult topics in simple language, provide examples, and test your understanding.",
-                    "Writing and Improving Content: Use it to organize ideas, improve grammar, create outlines, and make your writing clearer.",
-                    "Coding and Debugging: Share your code and error messages to understand problems, explore possible solutions, and learn programming concepts."
+                    "Let's look at some practical examples of how you can use ChatGPT in your daily life."
+                ],
+                subsections: [
+                    {
+                        heading: "1. Learning a New Concept",
+                        paragraphs: [
+                            "You can use ChatGPT to understand difficult topics in simple language. For example, if you are learning JavaScript, ask ChatGPT to explain concepts with beginner-friendly examples."
+                        ]
+                    },
+                    {
+                        heading: "2. Writing and Improving Content",
+                        paragraphs: [
+                            "ChatGPT can help you write emails, improve paragraphs, create blog ideas, and correct grammar. You can provide your original text and ask ChatGPT to make it clearer while keeping your intended meaning."
+                        ]
+                    },
+                    {
+                        heading: "3. Coding and Debugging",
+                        paragraphs: [
+                            "ChatGPT can help you understand programming concepts, find errors in your code, and suggest possible solutions. You can share your code and ask it to explain the problem step by step."
+                        ]
+                    }
                 ]
             },
             {
@@ -59,6 +77,7 @@ const guides = [
             }
         ]
     },
+
     {
         title: "Best AI Tools for Students",
         description: "Discover AI tools that can help students with studying, research, assignments, and productivity.",
@@ -125,6 +144,7 @@ const guides = [
         ]
 
     },
+
     {
         title: "ChatGPT vs Claude: Which Is Better?",
         description: "Compare ChatGPT and Claude to understand their strengths, features, and best use cases.",
@@ -197,6 +217,7 @@ const guides = [
             }
         ]
     },
+
     {
         title: "How to Use AI for Coding",
         description: "Learn how AI coding assistants can help you write, understand, and debug code.",
@@ -274,6 +295,7 @@ const guides = [
         ]
 
     },
+
     {
         title: "Best AI Tools for Freelancers",
         description: "Explore AI tools that can help freelancers save time, improve their work, and boost productivity.",
@@ -352,6 +374,7 @@ const guides = [
         ]
 
     },
+
     {
         title: "Gemini vs ChatGPT: A Detailed Comparison",
         description: "Explore the differences between Gemini and ChatGPT and find out which one suits your needs.",
