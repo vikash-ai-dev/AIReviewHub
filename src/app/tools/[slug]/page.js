@@ -4,10 +4,30 @@ import tools from "../../data/tools";
 import Navbar from "../../components/Navbar";
 
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+
+  const tool = tools.find((item) => item.slug === slug);
+
+  if (!tool) {
+    return {
+      title: "Tool Not Found",
+      description: "The requested AI tool could not be found.",
+    };
+  }
+
+  return {
+    title: `${tool.name} Review and Features`,
+    description: `Discover ${tool.name}'s features, pricing, advantages, disadvantages, and our detailed review.`,
+  };
+}
+
+
 export default async function ToolDetails({ params }) {
   const { slug } = await params;
 
   const tool = tools.find((tool) => tool.slug === slug);
+  
   if (!tool) {
     notFound();
   }

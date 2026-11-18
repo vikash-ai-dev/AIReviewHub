@@ -1,6 +1,12 @@
 
 import Navbar from "../components/Navbar";
 
+export const metadata = {
+    title: "About Us",
+    description:
+        "Learn about AIReviewHub, our mission, principles, and approach to discovering useful AI tools.",
+};
+
 export default function About() {
     return (
         <main className="min-h-screen bg-[#0B0B0F] text-white">

@@ -4,6 +4,26 @@ import guides from "@/app/data/guides";
 import GuideCard from "@/app/components/GuideCard";
 import { notFound } from "next/navigation";
 
+
+export async function generateMetadata({ params }) {
+    const { slug } = await params;
+
+    const guide = guides.find((item) => item.slug === slug);
+
+    if (!guide) {
+        return {
+            title: "Guide Not Found",
+            description: "The requested guide could not be found.",
+        };
+    }
+
+    return {
+        title: guide.title,
+        description: guide.description,
+    };
+}
+
+
 const GuideDetails = async ({ params }) => {
     const { slug } = await params;
 
