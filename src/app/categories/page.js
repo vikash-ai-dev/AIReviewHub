@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Categories = () => {
     return (
-        <main className="min-h-screen bg-[#0B0B0F] text-white  ">
+        <main className="min-h-screen bg-[#0B0B0F] text-white pb-7  ">
             <Navbar />
 
             <section className=" max-w-6xl pt-10 mx-5 md:mx-14">

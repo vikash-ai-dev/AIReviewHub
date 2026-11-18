@@ -19,7 +19,7 @@ export default async function ToolDetails({ params }) {
       <Link href="/tools" className="text-sm font-bold  inline-block mb-3 text-zinc-400 transition hover:text-violet-400 px-4">
         ← Back to AI Tools
       </Link>
-      <div className="mx-auto max-w-4xl ">
+      <div className="mx-auto max-w-4xl md:p-0 px-5 ">
 
         {/* <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500 self-start">
           AIReviewHub
@@ -111,7 +111,9 @@ export default async function ToolDetails({ params }) {
           className="mt-10 inline-block rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500">
           Visit Tool
         </a>
+
       </div>
+
     </main>
   );
 }

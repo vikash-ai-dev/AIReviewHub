@@ -44,7 +44,7 @@ const Guide = () => {
 
             <Navbar />
 
-            <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-6xl px-5">
 
                 <section className="flex flex-col gap-4 items-center">
 
@@ -58,13 +58,13 @@ const Guide = () => {
 
                     <p className="max-w-xl text-base text-center text-zinc-400 ">Practical tutorials, helpful guides, and honest AI tool comparisons to help you get more from AI.</p>
 
-                    <div className="relative w-full max-w-xl">
+                    <div className="relative w-full max-w-xl md:p-0 pr-5">
 
                         <Search className="absolute left-7 md:left-4 top-1/2 -translate-y-1/2 text-zinc-400" />
 
                         <input
                             onChange={(e)=>setSearch(e.target.value)}
-                            className="w-full border border-zinc-800 bg-zinc-900 rounded-xl px-5 pl-12 py-4 mx-5 md:mx-0 text-white outline-none placeholder:text-zinc-400 placeholder:text-sm focus:border-violet-500"
+                            className="w-full border border-zinc-800 bg-zinc-900 rounded-xl  pl-12 py-4 mx-5 md:mx-0 text-white outline-none placeholder:text-zinc-400 placeholder:text-sm focus:border-violet-500"
                             type="text"
                             placeholder="Search guides, tutorials, comparisons..."
                         />
@@ -73,7 +73,7 @@ const Guide = () => {
 
                 </section>
 
-                <section className="mt-12 pl-5 flex flex-col gap-5">
+                <section className="mt-12  flex flex-col gap-5">
 
                     <h2 className="text-2xl font-semibold text-white">Explore All Guides</h2>
 

@@ -2,21 +2,21 @@
 
 import Navbar from "../components/Navbar";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import tools from "../data/tools";
 import ToolCard from "../components/ToolCard";
 
 
-export default function Tools() {
+function ToolsContent() {
 
     const searchParams = useSearchParams();
     const categoryUrl = searchParams.get("category");
-    
-    const [search, setSearch] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState(categoryUrl || ""); 
 
-    
+    const [search, setSearch] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState(categoryUrl || "");
+
+
 
     const filteredTools = tools.filter((tool) => {
         const matchesCategory =
@@ -43,7 +43,7 @@ export default function Tools() {
     return (
         <main className="min-h-screen bg-[#0B0B0F] pb-12 text-white">
             <Navbar />
-            <section className="mx-auto max-w-6xl">
+            <section className="mx-auto max-w-6xl  px-5">
                 {/* <Link href="/" className="text-sm font-semibold uppercase tracking-widest text-violet-500">
                     AIReviewHub
                 </Link> */}
@@ -140,5 +140,13 @@ export default function Tools() {
 
             </section>
         </main>
+    );
+}
+
+export default function Tools() {
+    return (
+        <Suspense fallback={<p className="p-6 text-white">Loading tools...</p>}>
+            <ToolsContent />
+        </Suspense>
     );
 }
