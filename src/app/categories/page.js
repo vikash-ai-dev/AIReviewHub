@@ -2,6 +2,12 @@ import Navbar from "../components/Navbar";
 import { PenLine, Image, Video, Code2, AudioLines, Zap } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+    title: "AI Tool Categories",
+    description:
+        "Explore AI tools by category, including productivity, coding, image generation, video, audio, and writing tools.",
+};
+
 const Categories = () => {
     return (
         <main className="min-h-screen bg-[#0B0B0F] text-white pb-7  ">
@@ -44,6 +50,7 @@ const Categories = () => {
 
 
                 </div>
+
                 <div className="w-full rounded-xl border border-zinc-800 bg-[#15151C] p-6 transition hover:border-violet-500">
 
                     <div className="mb-4 flex items-center gap-3">
@@ -68,6 +75,7 @@ const Categories = () => {
                     </div>
 
                 </div>
+
                 <div className="w-full rounded-xl border border-zinc-800 bg-[#15151C] p-6 transition hover:border-violet-500">
 
                     <div className="mb-4 flex items-center gap-3">
@@ -92,6 +100,7 @@ const Categories = () => {
                     </div>
 
                 </div>
+
                 <div className="w-full rounded-xl border border-zinc-800 bg-[#15151C] p-6 transition hover:border-violet-500">
 
                     <div className="mb-4 flex items-center gap-3">
@@ -144,6 +153,7 @@ const Categories = () => {
 
 
                 </div>
+
                 <div className="w-full rounded-xl border border-zinc-800 bg-[#15151C] p-6 transition hover:border-violet-500">
 
                     <div className="mb-4 flex items-center gap-3">
