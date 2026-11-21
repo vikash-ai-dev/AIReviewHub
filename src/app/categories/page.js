@@ -6,6 +6,16 @@ export const metadata = {
     title: "AI Tool Categories",
     description:
         "Explore AI tools by category, including productivity, coding, image generation, video, audio, and writing tools.",
+
+    alternates: {
+        canonical: "/categories",
+    },
+    openGraph: {
+        title: "Explore AI Tool Categories",
+        description:
+            "Explore AI tools by category, including productivity, coding, image generation, video, audio, and writing tools.",
+        url: "/categories",
+    },
 };
 
 const Categories = () => {

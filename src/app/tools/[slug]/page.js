@@ -18,7 +18,18 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${tool.name} Review and Features`,
+
     description: `Discover ${tool.name}'s features, pricing, advantages, disadvantages, and our detailed review.`,
+
+    alternates: {
+      canonical: `/tools/${tool.slug}`,
+    },
+
+    openGraph: {
+      title: `${tool.name} Review and Features`,
+      description: `Discover ${tool.name}'s features, pricing, advantages, disadvantages, and our detailed review.`,
+      url: `/tools/${tool.slug}`,
+    },
   };
 }
 
@@ -27,7 +38,7 @@ export default async function ToolDetails({ params }) {
   const { slug } = await params;
 
   const tool = tools.find((tool) => tool.slug === slug);
-  
+
   if (!tool) {
     notFound();
   }

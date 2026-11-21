@@ -19,7 +19,19 @@ export async function generateMetadata({ params }) {
 
     return {
         title: guide.title,
+
         description: guide.description,
+
+        alternates: {
+            canonical: `/guides/${guide.slug}`,
+        },
+        
+        openGraph: {
+            title: "AI Guides and Tutorials",
+            description:
+                "Explore practical AI tutorials, helpful guides, and honest AI tool comparisons on AIReviewHub.",
+            url: "/guides",
+        },
     };
 }
 

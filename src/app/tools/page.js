@@ -5,6 +5,17 @@ export const metadata = {
     title: "AI Tools",
     description:
         "Discover and compare AI tools through honest reviews, features, pricing, and ratings on AIReviewHub.",
+
+    alternates: {
+        canonical: "/tools",
+    },
+    
+    openGraph: {
+        title: "Discover AI Tools",
+        description:
+            "Discover and compare AI tools through honest reviews, features, pricing, and ratings on AIReviewHub.",
+        url: "/tools",
+    },
 };
 
 export default function Tools() {

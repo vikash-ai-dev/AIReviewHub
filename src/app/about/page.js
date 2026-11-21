@@ -2,9 +2,22 @@
 import Navbar from "../components/Navbar";
 
 export const metadata = {
+
     title: "About Us",
+
     description:
         "Learn about AIReviewHub, our mission, principles, and approach to discovering useful AI tools.",
+
+    alternates: {
+        canonical: "/about",
+    },
+
+    openGraph: {
+        title: "About AIReviewHub",
+        description:
+            "Learn about our mission, principles, and approach to discovering useful AI tools.",
+        url: "/about",
+    },
 };
 
 export default function About() {

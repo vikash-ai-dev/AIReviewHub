@@ -13,13 +13,25 @@ const geistMono = Geist_Mono({
 
 
 export const metadata = {
+  metadataBase: new URL("http://localhost:3000"),
+
   title: {
     default: "AIReviewHub - Discover AI Tools That Actually Help",
     template: "%s | AIReviewHub",
   },
   description:
     "Discover, explore, and compare AI tools through honest reviews, practical guides, and detailed comparisons.",
+
+  openGraph: {
+    title: "AIReviewHub - Discover AI Tools That Actually Help",
+    description:
+      "Discover, explore, and compare AI tools through honest reviews, practical guides, and detailed comparisons.",
+    siteName: "AIReviewHub",
+    type: "website",
+  },
 };
+
+
 
 
 export default function RootLayout({ children }) {
