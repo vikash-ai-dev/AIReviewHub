@@ -17,6 +17,7 @@ export const metadata = {
         description:
             "Learn about our mission, principles, and approach to discovering useful AI tools.",
         url: "/about",
+        images: ["/og-image.png"],
     },
 };
 

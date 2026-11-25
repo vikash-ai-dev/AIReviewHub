@@ -15,6 +15,7 @@ export const metadata = {
         description:
             "Explore AI tools by category, including productivity, coding, image generation, video, audio, and writing tools.",
         url: "/categories",
+        images: ["/og-image.png"],
     },
 };
 
