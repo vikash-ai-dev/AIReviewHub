@@ -9,12 +9,12 @@ export const metadata = {
     alternates: {
         canonical: "/tools",
     },
-    
+
     openGraph: {
         title: "Discover AI Tools",
-        description:
-            "Discover and compare AI tools through honest reviews, features, pricing, and ratings on AIReviewHub.",
+        description: "Explore and compare AI tools...",
         url: "/tools",
+        images: ["/og-image.png"],
     },
 };
 

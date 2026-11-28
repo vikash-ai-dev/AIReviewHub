@@ -26,9 +26,10 @@ export async function generateMetadata({ params }) {
     },
 
     openGraph: {
-      title: `${tool.name} Review and Features`,
-      description: `Discover ${tool.name}'s features, pricing, advantages, disadvantages, and our detailed review.`,
+      title: tool.name,
+      description: tool.description,
       url: `/tools/${tool.slug}`,
+      images: ["/og-image.png"],
     },
   };
 }

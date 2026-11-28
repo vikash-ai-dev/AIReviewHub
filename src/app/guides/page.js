@@ -11,9 +11,10 @@ export const metadata = {
     },
 
     openGraph: {
-        title: guide.title,
-        description: guide.description,
-        url: `/guides/${guide.slug}`,
+        title: "AI Guides and Tutorials",
+        description: "Explore practical AI guides and tutorials.",
+        url: "/guides",
+        images: ["/og-image.png"],
     },
 };
 
