@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL("https://ai-review-hub-mu.vercel.app"),
 
+  verification: {
+    google: "3Rw1PivnvNNgDFuAesUp5dUI8qXWADvT_IKVBmECkWU",
+  },
+
   title: {
     default: "AIReviewHub - Discover AI Tools That Actually Help",
     template: "%s | AIReviewHub",
