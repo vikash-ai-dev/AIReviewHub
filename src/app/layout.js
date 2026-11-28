@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 
 export const metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://ai-review-hub-mu.vercel.app"),
 
   title: {
     default: "AIReviewHub - Discover AI Tools That Actually Help",
@@ -21,14 +21,14 @@ export const metadata = {
   },
   description:
     "Discover, explore, and compare AI tools through honest reviews, practical guides, and detailed comparisons.",
-openGraph: {
-  title: "AIReviewHub - Discover AI Tools That Actually Help",
-  description:
-    "Discover, explore, and compare AI tools through honest reviews, practical guides, and detailed comparisons.",
-  siteName: "AIReviewHub",
-  type: "website",
-  images: ["/og-image.png"],
-},
+  openGraph: {
+    title: "AIReviewHub - Discover AI Tools That Actually Help",
+    description:
+      "Discover, explore, and compare AI tools through honest reviews, practical guides, and detailed comparisons.",
+    siteName: "AIReviewHub",
+    type: "website",
+    images: ["/og-image.png"],
+  },
 };
 
 

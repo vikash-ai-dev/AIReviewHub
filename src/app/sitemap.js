@@ -4,7 +4,7 @@ import guides from "./data/guides";
 
 export default function sitemap() {
 
-    const baseUrl = "http://localhost:3000";
+    const baseUrl = "https://ai-review-hub-mu.vercel.app";
 
     const staticPages = [
         "",

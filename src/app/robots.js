@@ -8,6 +8,6 @@ export default function robots() {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: "http://localhost:3000/sitemap.xml",
+        sitemap: "https://ai-review-hub-mu.vercel.app/sitemap.xml",
     }
 }
